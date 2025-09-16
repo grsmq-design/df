@@ -9,3 +9,8 @@ cd paru
 makepkg -si
 paru -S neovim fzf zoxide ripgrep lsd fd lazygit lazydocker docker btop impala fastfetch mpv kdenlive ghostty yazi nushell fish kitty dysk bat zen-browser-bin wget kate
 eog polkit dbus 
+
+
+
+curl https://get.volta.sh | bash
+volta install node

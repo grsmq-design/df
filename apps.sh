@@ -7,10 +7,7 @@ rustup default stable
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
-paru -S neovim fzf zoxide ripgrep lsd fd lazygit lazydocker docker btop impala fastfetch mpv kdenlive ghostty yazi nushell fish kitty dysk bat zen-browser-bin wget kate
-eog polkit dbus 
-
-
+paru -S 
 
 curl https://get.volta.sh | bash
 volta install node

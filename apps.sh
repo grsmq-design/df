@@ -11,3 +11,8 @@ paru -S 7zip bat btop cage caligula dysk evince fastfetch fd ffmpeg firefox fire
 
 curl https://get.volta.sh | bash
 #volta install node
+
+rm -rf ~/.config/nvim
+rm -rf ~/.local/state/nvim
+rm -rf ~/.local/share/nvim
+git clone https://github.com/NvChad/starter ~/.config/nvim

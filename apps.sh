@@ -17,7 +17,7 @@ rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 git clone https://github.com/NvChad/starter ~/.config/nvim
 
-flatpak install flathub app.drey.Warp
-flatpak install flathub com.github.johnfactotum.Foliate
-flatpak install flathub net.cozic.joplin_desktop
-flatpak install flathub ch.theologeek.Manuskript
+#flatpak install flathub app.drey.Warp
+#flatpak install flathub com.github.johnfactotum.Foliate
+#flatpak install flathub net.cozic.joplin_desktop
+#flatpak install flathub ch.theologeek.Manuskript

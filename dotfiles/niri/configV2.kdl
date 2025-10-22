@@ -60,22 +60,6 @@ layout {
 
 }
 
-layer-rule {
-    match namespace="waybar"
-    match at-startup=true
-
-    opacity 0.6
-
-    shadow {
-        on
-        softness 10
-        spread 10
-        offset x=0 y=5
-    }
-
-    geometry-corner-radius 10
-    }
-
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 

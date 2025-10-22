@@ -26,10 +26,7 @@ input {
         natural-scroll
     }
 }
-layer-rule {
-    match namespace="swww-daemon"
-    place-within-backdrop true
-}
+
 output "eDP-1" {
 	mode "1920x1080@144"
 }

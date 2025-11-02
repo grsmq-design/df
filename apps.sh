@@ -4,7 +4,6 @@ cd ~
 mkdir tmp
 sudo pacman -S --needed base-devel git rustup
 rustup default stable
-curl -fsSL https://install.danklinux.com | sh
 paru -S --needed 7zip bat btop cage caligula dysk flatpak fastfetch fd ffmpeg fzf ghostty impala eog kity lsd mpv neovim nushell unzip xdg-desktop-portal-gnome yazi yt-dlp zoxide iwd nano niri openssh smartmontools wireless_tools wpa_supplicant xdg-utils rstudio-desktop-bin
 
 flatpak install flathub org.localsend.localsend_app
@@ -35,4 +34,4 @@ git clone https://github.com/NvChad/starter ~/.config/nvim
 curl https://get.volta.sh | bash
 #volta install node
 
-
+curl -fsSL https://install.danklinux.com | sh

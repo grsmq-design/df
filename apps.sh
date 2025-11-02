@@ -24,6 +24,7 @@ flatpak install flathub org.kde.klevernotes
 flatpak install flathub org.gnome.Contacts
 #flatpak install flathub com.invoiceninja.InvoiceNinja
 #flatpak install flathub io.neovim.nvim #only if it is not in the repositories
+#flatpak install flathub com.konstantintutsch.Lock if trust
 
 rm -rf ~/.config/nvim
 rm -rf ~/.local/state/nvim

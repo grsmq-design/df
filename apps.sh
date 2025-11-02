@@ -22,9 +22,14 @@ flatpak install flathub work.openpaper.Paperwork
 flatpak install flathub org.prismlauncher.PrismLauncher #if not in repositories
 flatpak install flathub org.kde.klevernotes
 flatpak install flathub org.gnome.Contacts
+flatpak install flathub net.agalwood.Motrix
 #flatpak install flathub com.invoiceninja.InvoiceNinja
 #flatpak install flathub io.neovim.nvim #only if it is not in the repositories
 #flatpak install flathub com.konstantintutsch.Lock if trust
+#flatpak install flathub io.github.cgueret.Scriptorium
+#flatpak install flathub io.github.getnf.embellish
+#flatpak install flathub com.bitwarden.desktop
+
 
 rm -rf ~/.config/nvim
 rm -rf ~/.local/state/nvim

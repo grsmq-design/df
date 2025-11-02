@@ -25,9 +25,9 @@ flatpak install flathub org.gnome.Contacts
 flatpak install flathub net.agalwood.Motrix
 flatpak install flathub fr.nytuo.cosmiccomics
 flatpak install flathub org.onlyoffice.desktopeditors
+flatpak install flathub com.brave.Browser
 #flatpak install flathub com.prusa3d.PrusaSlicer
 #flatpak install flathub com.bambulab.BambuStudio
-#flatpak install flathub org.kde.kile
 #flatpak install flathub com.github.cubitect.cubiomes-viewer
 #flatpak install flathub com.invoiceninja.InvoiceNinja
 #flatpak install flathub io.neovim.nvim #only if it is not in the repositories

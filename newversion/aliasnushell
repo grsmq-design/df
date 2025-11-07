@@ -1,0 +1,151 @@
+#-------------#
+#---- git-----#
+#-------------#
+alias lg = lazygit
+alias gcl = git clone
+alias gin = git init
+alias gad = git add
+alias gcm = git commit -m
+alias gp = git push
+alias gst = git status
+
+#youtube download
+def ytdl [
+    url: string,
+    --format: string = "video"  # Default format
+] {
+    match $format {
+        "aac" => {
+            yt-dlp --extract-audio --audio-format aac $url
+        },
+        "best" => {
+            yt-dlp --extract-audio --audio-format best $url
+        },
+        "flac" => {
+            yt-dlp --extract-audio --audio-format flac $url
+        },
+        "mp3" => {
+            yt-dlp --extract-audio --audio-format mp3 $url
+        },
+        "video" | "best-video" | "mp4" => {
+            yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 $url
+        },
+        _ => {
+            print $"Unknown format: ($format). Available formats: aac, best, flac, mp3, video"
+        }
+    }
+}
+
+
+# # ex = EXtractor for all kinds of archives
+# # usage: ex <file>
+def ex [file: string] {
+    if ($file | path exists) and ($file | path type) == "file" {
+        if $file ends-with ".tar.bz2" {
+            tar xjf $file
+        } else if $file ends-with ".tar.gz" {
+            tar xzf $file
+        } else if $file ends-with ".bz2" {
+            bunzip2 $file
+        } else if $file ends-with ".rar" {
+            unrar x $file
+        } else if $file ends-with ".gz" {
+            gunzip $file
+        } else if $file ends-with ".tar" {
+            tar xf $file
+        } else if $file ends-with ".tbz2" {
+            tar xjf $file
+        } else if $file ends-with ".tgz" {
+            tar xzf $file
+        } else if $file ends-with ".zip" {
+            unzip $file
+        } else if $file ends-with ".Z" {
+            uncompress $file
+        } else if $file ends-with ".7z" {
+            7z x $file
+        } else if $file ends-with ".deb" {
+            ar x $file
+        } else if $file ends-with ".tar.xz" {
+            tar xf $file
+        } else if $file ends-with ".tar.zst" {
+            tar xf $file
+        } else {
+            print $"'($file)' cannot be extracted via ex()"
+        }
+    } else {
+        print $"'($file)' is not a valid file"
+    }
+}
+
+#---------------------------------#
+#------ taken from cloudlena------#
+#---------------------------------#
+
+# Create a directory and enter it
+def --env mkcd [path: string] {
+    mkdir -p $path
+    cd $path
+}
+
+# cd into directory using fuzzy search
+def --env fcd [] {
+    let dir = (fd --type d --follow | fzf --preview 'tree -l -L 1 {}' +m)
+    cd $dir
+}
+# Edit a directory or a file using fuzzy search
+def --env fe [] {
+    let target = (fd --follow --hidden --no-ignore --exclude .git --exclude vendor --exclude node_modules --exclude .terraform --exclude target --exclude bin --exclude build --exclude dist --exclude coverage --exclude .DS_Store | fzf +m)
+    
+    if $target != null {
+        if ($target | path type) == "dir" {
+            cd $target
+            ^$env.EDITOR
+        } else if ($target | path type) == "file" {
+            ^$env.EDITOR $target
+        }
+    }
+}
+
+# Update project dependencies
+def depu [] {
+    let project_name = ($env.PWD | path basename)
+    
+    # Git submodules
+    if ('.gitmodules' | path exists) {
+        print $"(ansi yellow)Updating Git submodules for ($project_name)(ansi reset)..."
+        git submodule update --init --remote --rebase --recursive
+    }
+    
+    # npm
+    if ('package-lock.json' | path exists) {
+        print $"(ansi yellow)Updating npm dependencies for ($project_name)(ansi reset)..."
+        pnpm update
+        pnpm outdated
+    }
+    
+    # Go
+    if ('go.mod' | path exists) {
+        print $"(ansi yellow)Updating Go dependencies for ($project_name)(ansi reset)..."
+        go get -t -u ./...
+        go mod tidy
+    }
+    
+    # Rust
+    if ('Cargo.toml' | path exists) {
+        print $"(ansi yellow)Updating Cargo dependencies for ($project_name)(ansi reset)..."
+        cargo update
+    }
+    
+    # Python
+    if ('poetry.lock' | path exists) {
+        print $"(ansi yellow)Updating Python dependencies for ($project_name)(ansi reset)..."
+        poetry update
+        poetry show --outdated
+    }
+    
+    # Terraform
+    if ('.terraform.lock.hcl' | path exists) {
+        print $"(ansi yellow)Updating Terraform dependencies for ($project_name)(ansi reset)..."
+        terraform init -upgrade
+    }
+}

@@ -77,10 +77,6 @@ def ex [file: string] {
     }
 }
 
-#---------------------------------#
-#------ taken from cloudlena------#
-#---------------------------------#
-
 # Create a directory and enter it
 def --env mkcd [path: string] {
     mkdir -p $path

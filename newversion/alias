@@ -10,19 +10,12 @@ alias gp = git push
 alias gst = git status
 
 #youtube download
-alias yta-aac= yt-dlp --extract-audio --audio-format aac "
-alias yta-best="yt-dlp --extract-audio --audio-format best "
-alias yta-flac="yt-dlp --extract-audio --audio-format flac "
-alias yta-mp3="yt-dlp --extract-audio --audio-format mp3 "
-alias ytv-best="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 "
+alias yta-aac = yt-dlp --extract-audio --audio-format aac
+alias yta-best = yt-dlp --extract-audio --audio-format best
+alias yta-flac = yt-dlp --extract-audio --audio-format flac
+alias yta-mp3 = yt-dlp --extract-audio --audio-format mp3
+alias ytv-best = yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4
 
-
-#EDITOR for important configuration files
-alias efstab="sudoedit /etc/fstab"
-alias ebsh="$EDITOR ~/.bashrc"
-alias ezsh="$EDITOR ~/.config/zsh/.zshrc"
-alias efish="$EDITOR ~/.config/fish/config.fish"
-alias enu=
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>

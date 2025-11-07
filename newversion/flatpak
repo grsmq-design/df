@@ -9,3 +9,4 @@ Kdenlive                                         org.kde.kdenlive               
 LocalSend                                        org.localsend.localsend_app                             1.17.0                              stable                 system
 Firefox                                          org.mozilla.firefox                                     144.0.2                             stable                 system
 Paperwork                                        work.openpaper.Paperwork                                2.2.5                               stable                 system
+flatpak install flathub net.sourceforge.mcomix

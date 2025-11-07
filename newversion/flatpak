@@ -10,3 +10,4 @@ flatpak install flathub org.localsend.localsend_app
 flatpak install flathub org.mozilla.firefox
 flatpak install flathub work.openpaper.Paperwork
 flatpak install flathub org.prismlauncher.PrismLauncher
+flatpak install flathub org.gnome.Music
